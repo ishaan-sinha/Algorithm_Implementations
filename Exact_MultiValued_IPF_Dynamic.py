@@ -17,5 +17,9 @@ def top(rank):
     i = attributes[0:rank].count(attributes[rank])
     return math.ceil(i/(attribute_percentages[attributes[rank] - 1]))
 
-top_list = []
-bot_list = []
+
+top_list = [top(i) for i in range(0, len(initial_rank))]
+bot_list = [bot(i) for i in range(0, len(initial_rank))]
+
+print(top_list)
+print(bot_list)
