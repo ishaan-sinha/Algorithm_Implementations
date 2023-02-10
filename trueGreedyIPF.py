@@ -45,6 +45,6 @@ def createSolution(attribute):
     for i in solution:
         solNum.append(indicesOfAttributes[i][0]+1)
         indicesOfAttributes[i] = indicesOfAttributes[i][1:]
-    return solution
+    return solNum
 
 

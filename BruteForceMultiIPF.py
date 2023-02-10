@@ -45,5 +45,3 @@ def bruteForce(attribute):
             lowestDistance = kendall_tau_distance(original, order)
             solution = order
     return [i + 1 for i in solution]
-
-print(bruteForce(["a", "b", "a", "c", "c", "b", "b", "a", "c"]))
