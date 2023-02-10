@@ -8,12 +8,12 @@ number_of_attributes = len(set(attributes))
 attribute_percentages = [attributes.count(i)/len(attributes) for i in range(1, number_of_attributes+1)]
 
 
-def bot(rank):
+def top(rank):
     i = attributes[0:rank].count(attributes[rank])
     return math.floor((i-1)/attribute_percentages[attributes[rank] - 1]) + 1
 
 
-def top(rank):
+def bot(rank):
     i = attributes[0:rank].count(attributes[rank])
     return math.ceil(i/(attribute_percentages[attributes[rank] - 1]))
 
