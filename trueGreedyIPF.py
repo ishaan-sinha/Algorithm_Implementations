@@ -1,19 +1,11 @@
 import itertools
 import math
 
-original = [0, 1, 2, 3, 4, 5, 6, 7]
-attribute = ["b", "c", "b", "a", "b", "a", "b", "c"]
-listOfAttributes = set(attribute)
-number_of_attributes = len(set(attribute))
-attribute_percentages = {}
-for i in listOfAttributes:
-    attribute_percentages[i] = attribute.count(i)/len(attribute)
-
-toUse = attribute.copy()
-solution = []
 
 
-def getpossible():
+
+
+def getpossible(solution, attribute_percentages, listOfAttributes):
     needed = {}
     for x, y in attribute_percentages.items():
         needed[x] = (len(solution)+1) * attribute_percentages[x]
@@ -29,13 +21,24 @@ def getpossible():
     return poss
 
 
-for i in range(1, len(original)+1):
-    poss = getpossible()
-    res = []
-    [res.append(x) for x in toUse if x not in res]
-    for j in res:
-        if j in poss:
-            toUse.remove(j)
-            solution.append(j)
-            break
+def createSolution(attribute):
+    solution = []
+    toUse = attribute.copy()
+    listOfAttributes = set(attribute)
+    number_of_attributes = len(set(attribute))
+    attribute_percentages = {}
+    for i in listOfAttributes:
+        attribute_percentages[i] = attribute.count(i) / len(attribute)
 
+    for i in range(1, len(attribute)+1):
+        poss = getpossible(solution, attribute_percentages, listOfAttributes)
+        res = []
+        [res.append(x) for x in toUse if x not in res]
+        for j in res:
+            if j in poss:
+                toUse.remove(j)
+                solution.append(j)
+                break
+    return solution
+
+print(createSolution(["a", "b", "a", "c", "c", "b", "b", "a", "c"]))
