@@ -1,8 +1,8 @@
 import itertools
 import math
 
-original = [0, 1, 2, 3, 4, 5, 6, 7]
-attribute = ["b", "b", "b", "d", "a", "a", "a", "c"]
+original = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+attribute = ["a", "a", "b", "b", "b", "d", "c", "b", "c", "b"] #2 a, 5 b, 2c, 1d
 listOfAttributes = set(attribute)
 number_of_attributes = len(set(attribute))
 attribute_percentages = {}
@@ -29,7 +29,9 @@ for order in possibilities:
     if(flag == True):
         ipfWorkings.append(order)
 
-
+print(ipfWorkings)
+print(ipfWorkings.index([1, 3, 4, 7, 2, 5, 6, 8, 9, 10]))
+'''
 def kendall_tau_distance(order_a, order_b):
     pairs = itertools.combinations(range(0, len(order_a)), 2)
     distance = 0
@@ -46,4 +48,5 @@ for order in ipfWorkings:
     if kendall_tau_distance(original, order) < lowestDistance:
         lowestDistance = kendall_tau_distance(original, order)
         solution = order
-print(solution, [attribute[i] for i in solution], lowestDistance)
+print([i + 1 for i in solution], [attribute[i] for i in solution], lowestDistance)
+'''
