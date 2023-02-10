@@ -26,9 +26,11 @@ def createSolution(attribute):
     toUse = attribute.copy()
     listOfAttributes = set(attribute)
     number_of_attributes = len(set(attribute))
+    indicesOfAttributes = {}
     attribute_percentages = {}
     for i in listOfAttributes:
         attribute_percentages[i] = attribute.count(i) / len(attribute)
+        indicesOfAttributes[i] = [j for j in range(len(attribute)) if attribute[j] == i]
 
     for i in range(1, len(attribute)+1):
         poss = getpossible(solution, attribute_percentages, listOfAttributes)
@@ -39,6 +41,10 @@ def createSolution(attribute):
                 toUse.remove(j)
                 solution.append(j)
                 break
+    solNum = []
+    for i in solution:
+        solNum.append(indicesOfAttributes[i][0]+1)
+        indicesOfAttributes[i] = indicesOfAttributes[i][1:]
     return solution
 
-print(createSolution(["a", "b", "a", "c", "c", "b", "b", "a", "c"]))
+
