@@ -1,8 +1,8 @@
 import itertools
 import math
 
-original = [0, 1, 2, 3, 4, 5]
-attribute = ["c", "b", "b", "a", "c", "a"]
+original = [0, 1, 2, 3, 4, 5, 6, 7]
+attribute = ["b", "b", "b", "d", "a", "a", "a", "c"]
 listOfAttributes = set(attribute)
 number_of_attributes = len(set(attribute))
 attribute_percentages = {}
