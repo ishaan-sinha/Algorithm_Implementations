@@ -2,10 +2,10 @@ import itertools
 import math
 
 from trueGreedyIPF import createSolution
-from BruteForceMultiIPF import bruteForce
+from trueBruteMultiIPF import bruteForce
 
 
-root = ["a", "a", "b", "b", "b", "d", "c", "b"]
+root = ["a", "a", "b", "b", "b", "d", "c", "b", "c", "b", "a"]
 print(createSolution(root))
 print(bruteForce(root))
 '''
