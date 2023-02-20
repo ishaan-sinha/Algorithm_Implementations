@@ -2,13 +2,10 @@ import itertools
 import math
 
 
-
-
-
 def getpossible(solution, attribute_percentages, listOfAttributes):
     needed = {}
     for x, y in attribute_percentages.items():
-        needed[x] = (len(solution)+1) * attribute_percentages[x]
+        needed[x] = (len(solution) + 1) * attribute_percentages[x]
     for j in listOfAttributes:
         if solution.count(j) < math.floor(needed[j]):
             return [j]
@@ -32,7 +29,7 @@ def createSolution(attribute):
         attribute_percentages[i] = attribute.count(i) / len(attribute)
         indicesOfAttributes[i] = [j for j in range(len(attribute)) if attribute[j] == i]
 
-    for i in range(1, len(attribute)+1):
+    for i in range(1, len(attribute) + 1):
         poss = getpossible(solution, attribute_percentages, listOfAttributes)
         res = []
         [res.append(x) for x in toUse if x not in res]
@@ -43,8 +40,6 @@ def createSolution(attribute):
                 break
     solNum = []
     for i in solution:
-        solNum.append(indicesOfAttributes[i][0]+1)
+        solNum.append(indicesOfAttributes[i][0] + 1)
         indicesOfAttributes[i] = indicesOfAttributes[i][1:]
     return solNum
-
-

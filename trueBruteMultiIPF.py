@@ -1,5 +1,7 @@
 import itertools
 import math
+from sympy.utilities.iterables import multiset_permutations
+
 
 def kendall_tau_distance(order_a, order_b):
     pairs = itertools.combinations(range(1, len(order_a)+1), 2)
@@ -26,7 +28,7 @@ def bruteForce(attribute):
     for i in listOfAttributes:
         attribute_percentages[i] = attribute.count(i) / len(attribute)
         indicesOfAttributes[i] = [j for j in range(len(attribute)) if attribute[j] == i]
-    possibilities = itertools.permutations(attribute)
+    possibilities = multiset_permutations(attribute)
     ipfWorkings = []
     for rank in possibilities:
         works = True
