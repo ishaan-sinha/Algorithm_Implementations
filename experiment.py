@@ -19,10 +19,10 @@ def kendall_tau_distance(order_a, order_b):
 
 from sympy.utilities.iterables import multiset_permutations
 
-root = [ "a", "a", "a", "a", "b", "b", "c", "d"]
+root = [ "a", "a", "b", "b", "b", "d", "c", "b"]
 rootNum = [i for i in range(1, len(root) + 1)]
 toCheck = list(multiset_permutations(root))
-'''
+
 a = createSolution(root)
 b = bruteForce(root)
 print(root)
@@ -38,3 +38,4 @@ for i in toCheck:
         print(a, kendall_tau_distance(a, rootNum))
         print(b, kendall_tau_distance(b, rootNum))
         break
+'''
